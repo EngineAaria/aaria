@@ -19,49 +19,60 @@
   --soft:#f7f9f8;
 }
 
+/* RESET */
 * { box-sizing:border-box; margin:0; padding:0; }
-
 html { scroll-behavior:smooth; }
 body {
   font-family:'Inter',sans-serif;
   background:var(--bg);
   color:var(--dark);
+  overflow-x:hidden;
 }
 
-/* ---------- HERO (LOGO ONLY) ---------- */
+/* ---------- HERO ---------- */
 .hero-minimal {
   height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
+  position:relative;
   background:
-    radial-gradient(circle at top, rgba(14,158,110,0.06), transparent 60%),
-    #ffffff;
+    radial-gradient(circle at top, rgba(14,158,110,0.18), transparent 55%),
+    linear-gradient(120deg, #ffffff, #f4fbf8);
+}
+
+.hero-minimal::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size:40px 40px;
+  opacity:0.35;
+  pointer-events:none;
 }
 
 .hero-minimal img {
-  width:160px;
+  width:170px;
   max-width:70vw;
-  animation:fadeIn 1.6s ease;
+  animation:fadeInUp 1.6s ease forwards;
+  position:relative;
+  z-index:2;
 }
 
-@keyframes fadeIn {
-  from { opacity:0; transform:translateY(20px); }
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(28px); }
   to { opacity:1; transform:translateY(0); }
 }
 
 /* ---------- SECTIONS ---------- */
 .section {
   padding:120px 8%;
+  position:relative;
 }
 
 .center { text-align:center; }
-
-.section-title {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.2rem,5vw,3.6rem);
-  margin-bottom:20px;
-}
 
 .section-sub {
   max-width:720px;
@@ -73,11 +84,11 @@ body {
 
 /* ---------- POSITIONING ---------- */
 .positioning {
-  background:var(--soft);
+  background:linear-gradient(180deg, #ffffff, var(--soft));
 }
 
 .positioning h1 {
-  font-size:clamp(2.4rem,6vw,4.5rem);
+  font-size:clamp(2.6rem,6vw,4.6rem);
   font-family:'Playfair Display',serif;
   margin-bottom:20px;
 }
@@ -92,24 +103,33 @@ body {
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
+  gap:42px;
+  position:relative;
+}
+
+.card-link {
+  text-decoration:none;
+  color:inherit;
+  display:block;
 }
 
 .card {
   background:white;
-  padding:40px;
-  border-radius:22px;
-  box-shadow:0 10px 40px rgba(0,0,0,0.06);
-  transition:0.4s;
+  padding:42px;
+  border-radius:24px;
+  box-shadow:0 12px 46px rgba(0,0,0,0.07);
+  transition:0.45s cubic-bezier(.2,.8,.2,1);
+  height:100%;
 }
 
 .card:hover {
-  transform:translateY(-8px);
+  transform:translateY(-10px);
+  box-shadow:0 22px 70px rgba(0,0,0,0.12);
 }
 
 .card h3 {
-  margin-bottom:12px;
-  font-size:1.35rem;
+  margin-bottom:14px;
+  font-size:1.4rem;
 }
 
 .card p {
@@ -130,8 +150,8 @@ body {
 }
 
 .step-num {
-  width:52px;
-  height:52px;
+  width:54px;
+  height:54px;
   background:linear-gradient(135deg,var(--emerald),var(--gold));
   color:white;
   border-radius:50%;
@@ -142,7 +162,7 @@ body {
 }
 
 .step h4 {
-  font-size:1.4rem;
+  font-size:1.45rem;
   margin-bottom:8px;
 }
 
@@ -156,7 +176,7 @@ body {
 
 .cta h2 {
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.2rem,5vw,3.6rem);
+  font-size:clamp(2.3rem,5vw,3.8rem);
   margin-bottom:20px;
 }
 
@@ -169,25 +189,29 @@ body {
 
 .cta a {
   display:inline-block;
-  padding:16px 36px;
+  padding:18px 42px;
   border-radius:50px;
   background:white;
   color:var(--emerald);
-  font-weight:700;
+  font-weight:800;
   text-decoration:none;
-  margin:10px;
+  transition:0.3s;
+}
+
+.cta a:hover {
+  transform:scale(1.05);
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-  padding:60px 20px;
+  padding:70px 20px;
   background:#0f3d3e;
   color:#e6f6ef;
   text-align:center;
 }
 
 footer img {
-  width:70px;
+  width:72px;
   margin-bottom:16px;
 }
 
@@ -195,25 +219,30 @@ footer p {
   font-size:14px;
   opacity:0.85;
 }
-  .card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
 
-.card-link .card {
-  cursor: pointer;
-}
-
-.card-link .card:hover {
-  transform: translateY(-8px);
+/* ---------- MOBILE STICKY CTA ---------- */
+@media(max-width:768px){
+  .mobile-cta {
+    position:fixed;
+    bottom:16px;
+    left:50%;
+    transform:translateX(-50%);
+    background:linear-gradient(135deg,var(--emerald),var(--gold));
+    color:white;
+    padding:14px 26px;
+    border-radius:50px;
+    font-weight:700;
+    text-decoration:none;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    z-index:999;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO: LOGO ONLY -->
+<!-- HERO -->
 <section class="hero-minimal">
   <img src="aarialogoconsultant.png" alt="AARIA Logo">
 </section>
@@ -231,106 +260,25 @@ footer p {
 <section class="section">
   <div class="grid">
 
-    <a href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"
-       target="_blank"
-       class="card-link">
-      <div class="card">
-        <h3>🎯 Purpose-Driven Plot Selection</h3>
-        <p>Whether for living, investing, or future plans, AARIA aligns plot choices with your real life goals.</p>
-      </div>
-    </a>
+    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>🎯 Purpose-Driven Plot Selection</h3><p>Whether for living, investing, or future plans, AARIA aligns plot choices with your real life goals.</p></div></a>
 
-    <a href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"
-       target="_blank"
-       class="card-link">
-      <div class="card">
-        <h3>📍 Location Intelligence</h3>
-        <p>Connectivity, growth zones, livability, infrastructure — location decisions backed by insight, not hype.</p>
-      </div>
-    </a>
+    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>📍 Location Intelligence</h3><p>Connectivity, growth zones, livability, infrastructure — location decisions backed by insight.</p></div></a>
 
-    <a href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"
-       target="_blank"
-       class="card-link">
-      <div class="card">
-        <h3>💰 Best Value Decisions</h3>
-        <p>Not the cheapest plots — the smartest long-term value and appreciation potential.</p>
-      </div>
-    </a>
+    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>💰 Best Value Decisions</h3><p>Not the cheapest plots — the smartest long-term value and appreciation potential.</p></div></a>
 
-    <a href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"
-       target="_blank"
-       class="card-link">
-      <div class="card">
-        <h3>🧭 End-to-End Guidance</h3>
-        <p>From first search to final decision, AARIA stays with you throughout the journey.</p>
-      </div>
-    </a>
+    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>🧭 End-to-End Guidance</h3><p>From first search to final decision, AARIA stays with you.</p></div></a>
 
-    <a href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"
-       target="_blank"
-       class="card-link">
-      <div class="card">
-        <h3>🛡️ Risk & Legal Awareness</h3>
-        <p>Ownership risks, legal issues, future concerns flagged before you commit.</p>
-      </div>
-    </a>
+    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>🛡️ Risk & Legal Awareness</h3><p>Ownership risks and legal issues flagged before you commit.</p></div></a>
 
-    <a href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"
-       target="_blank"
-       class="card-link">
-      <div class="card">
-        <h3>📊 Future Growth Insights</h3>
-        <p>Understand ROI, development plans, and long-term potential clearly.</p>
-      </div>
-    </a>
+    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>📊 Future Growth Insights</h3><p>Understand ROI, development plans, and long-term potential clearly.</p></div></a>
 
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section positioning">
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div>
-        <h4>Share Your Dream</h4>
-        <p>Tell AARIA your budget, purpose, preferred locations, and future plans.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div>
-        <h4>Location & Plot Shortlisting</h4>
-        <p>AARIA identifies locations and plots that truly match your needs.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div>
-        <h4>Compare & Understand</h4>
-        <p>Clear pros, cons, pricing logic, and long-term outlook explained.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div>
-        <h4>Confident Final Decision</h4>
-        <p>You choose with clarity — backed by intelligence, not pressure.</p>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
   <h2>Find Your Dream Plot with Confidence</h2>
-  <p>
-    No brokers. No pressure. No confusion.
-    Just intelligent guidance to help you buy the right plot.
-  </p>
-
-  <!-- Replace with Custom GPT or WhatsApp -->
+  <p>No brokers. No pressure. No confusion. Just intelligent guidance.</p>
   <a href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria">Start with AARIA</a>
 </section>
 
@@ -341,6 +289,7 @@ footer p {
   <p>© 2025 Aaria Realty • Kanpur, India</p>
 </footer>
 
+<a class="mobile-cta" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria">Talk to AARIA</a>
+
 </body>
 </html>
-
