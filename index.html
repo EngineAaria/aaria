@@ -1,295 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plots in Kanpur | Aaria</title>
+  <meta name="description" content="Verified plots in Kanpur with legal checks done. Direct developer deals. Zero brokerage. Book a free site visit today with Aaria — Your Property Guardian." />
+  <meta name="keywords" content="plots in Kanpur, land for sale Kanpur, verified plots Kanpur, property Kanpur UP, Aaria real estate" />
+  <meta property="og:title" content="Plots in Kanpur | Aaria" />
+  <meta property="og:description" content="Verified plots in Kanpur. Legal checks done. Zero brokerage. Book a free site visit today." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-<title>AARIA — AI Plot Buying Expert</title>
-<meta name="description" content="AARIA is an AI Plot Buying Expert helping you choose the perfect plot based on location intelligence, lifestyle needs, budget, and future growth.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    :root {
+      --green-deep:   #1a4731;
+      --green-mid:    #2a6347;
+      --green-light:  #3a8c62;
+      --green-pale:   #e8f3ed;
+      --green-accent: #4caf7d;
+      --gold:         #c9963a;
+      --gold-light:   #f0c97a;
+      --white:        #ffffff;
+      --off-white:    #f7f9f7;
+      --text-dark:    #1a2e24;
+      --text-mid:     #3d5a4a;
+      --text-light:   #6b8c7a;
+      --border:       #d0e4d8;
+      --shadow:       rgba(26,71,49,0.12);
+    }
 
-<style>
-:root {
-  --emerald:#0E9E6E;
-  --gold:#D4AF37;
-  --dark:#111;
-  --muted:#666;
-  --bg:#ffffff;
-  --soft:#f7f9f8;
-}
+    html { scroll-behavior: smooth; }
 
-/* RESET */
-* { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
-body {
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--dark);
-  overflow-x:hidden;
-}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* ---------- HERO ---------- */
-.hero-minimal {
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  background:
-    radial-gradient(circle at top, rgba(14,158,110,0.18), transparent 55%),
-    linear-gradient(120deg, #ffffff, #f4fbf8);
-}
+    /* ─── HEADER ─── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 56px;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--green-deep);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon svg { width: 20px; height: 20px; }
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      letter-spacing: 0.02em;
+    }
+    .logo-text span { color: var(--gold); }
+    .header-cta {
+      background: var(--green-deep);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: background 0.2s;
+    }
+    .header-cta:hover { background: var(--green-mid); }
 
-.hero-minimal::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
-  background-size:40px 40px;
-  opacity:0.35;
-  pointer-events:none;
-}
-
-.hero-minimal img {
-  width:170px;
-  max-width:70vw;
-  animation:fadeInUp 1.6s ease forwards;
-  position:relative;
-  z-index:2;
-}
-
-@keyframes fadeInUp {
-  from { opacity:0; transform:translateY(28px); }
-  to { opacity:1; transform:translateY(0); }
-}
-
-/* ---------- SECTIONS ---------- */
-.section {
-  padding:120px 8%;
-  position:relative;
-}
-
-.center { text-align:center; }
-
-.section-sub {
-  max-width:720px;
-  margin:0 auto 60px;
-  font-size:1.1rem;
-  color:var(--muted);
-  line-height:1.7;
-}
-
-/* ---------- POSITIONING ---------- */
-.positioning {
-  background:linear-gradient(180deg, #ffffff, var(--soft));
-}
-
-.positioning h1 {
-  font-size:clamp(2.6rem,6vw,4.6rem);
-  font-family:'Playfair Display',serif;
-  margin-bottom:20px;
-}
-
-.gradient {
-  background:linear-gradient(135deg,var(--emerald),var(--gold));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* ---------- FEATURES ---------- */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:42px;
-  position:relative;
-}
-
-.card-link {
-  text-decoration:none;
-  color:inherit;
-  display:block;
-}
-
-.card {
-  background:white;
-  padding:42px;
-  border-radius:24px;
-  box-shadow:0 12px 46px rgba(0,0,0,0.07);
-  transition:0.45s cubic-bezier(.2,.8,.2,1);
-  height:100%;
-}
-
-.card:hover {
-  transform:translateY(-10px);
-  box-shadow:0 22px 70px rgba(0,0,0,0.12);
-}
-
-.card h3 {
-  margin-bottom:14px;
-  font-size:1.4rem;
-}
-
-.card p {
-  color:var(--muted);
-  line-height:1.7;
-}
-
-/* ---------- HOW IT WORKS ---------- */
-.steps {
-  max-width:900px;
-  margin:0 auto;
-}
-
-.step {
-  display:flex;
-  gap:30px;
-  margin-bottom:60px;
-}
-
-.step-num {
-  width:54px;
-  height:54px;
-  background:linear-gradient(135deg,var(--emerald),var(--gold));
-  color:white;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-}
-
-.step h4 {
-  font-size:1.45rem;
-  margin-bottom:8px;
-}
-
-/* ---------- CTA ---------- */
-.cta {
-  background:linear-gradient(135deg,var(--emerald),#0a7050);
-  color:white;
-  text-align:center;
-  padding:120px 8%;
-}
-
-.cta h2 {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.3rem,5vw,3.8rem);
-  margin-bottom:20px;
-}
-
-.cta p {
-  max-width:700px;
-  margin:0 auto 40px;
-  opacity:0.95;
-  line-height:1.7;
-}
-
-.cta a {
-  display:inline-block;
-  padding:18px 42px;
-  border-radius:50px;
-  background:white;
-  color:var(--emerald);
-  font-weight:800;
-  text-decoration:none;
-  transition:0.3s;
-}
-
-.cta a:hover {
-  transform:scale(1.05);
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-  padding:70px 20px;
-  background:#0f3d3e;
-  color:#e6f6ef;
-  text-align:center;
-}
-
-footer img {
-  width:72px;
-  margin-bottom:16px;
-}
-
-footer p {
-  font-size:14px;
-  opacity:0.85;
-}
-
-/* ---------- MOBILE STICKY CTA ---------- */
-@media(max-width:768px){
-  .mobile-cta {
-    position:fixed;
-    bottom:16px;
-    left:50%;
-    transform:translateX(-50%);
-    background:linear-gradient(135deg,var(--emerald),var(--gold));
-    color:white;
-    padding:14px 26px;
-    border-radius:50px;
-    font-weight:700;
-    text-decoration:none;
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
-    z-index:999;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<!-- HERO -->
-<section class="hero-minimal">
-  <img src="aarialogoconsultant.png" alt="AARIA Logo">
-</section>
-
-<!-- POSITIONING -->
-<section class="section positioning center">
-  <h1>Your <span class="gradient">Dream Plot</span>, Perfectly Chosen</h1>
-  <p class="section-sub">
-    AARIA is an AI Plot Buying Expert that helps you discover and purchase the
-    perfect plot — based on your lifestyle, budget, purpose, and future growth.
-  </p>
-</section>
-
-<!-- FEATURES -->
-<section class="section">
-  <div class="grid">
-
-    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>🎯 Purpose-Driven Plot Selection</h3><p>Whether for living, investing, or future plans, AARIA aligns plot choices with your real life goals.</p></div></a>
-
-    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>📍 Location Intelligence</h3><p>Connectivity, growth zones, livability, infrastructure — location decisions backed by insight.</p></div></a>
-
-    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>💰 Best Value Decisions</h3><p>Not the cheapest plots — the smartest long-term value and appreciation potential.</p></div></a>
-
-    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>🧭 End-to-End Guidance</h3><p>From first search to final decision, AARIA stays with you.</p></div></a>
-
-    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>🛡️ Risk & Legal Awareness</h3><p>Ownership risks and legal issues flagged before you commit.</p></div></a>
-
-    <a class="card-link" target="_blank" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria"><div class="card"><h3>📊 Future Growth Insights</h3><p>Understand ROI, development plans, and long-term potential clearly.</p></div></a>
-
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <h2>Find Your Dream Plot with Confidence</h2>
-  <p>No brokers. No pressure. No confusion. Just intelligent guidance.</p>
-  <a href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria">TALK TO AARIA</a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <img src="aarialogoconsultant.png" alt="AARIA">
-  <p>Your Plot Buying Expert</p>
-  <p>© 2025 Aaria Realty • Kanpur, India</p>
-</footer>
-
-<a class="mobile-cta" href="https://chatgpt.com/g/g-6952d632079081919df0a8803b0e9923-aaria">TALK TO AARIA</a>
-
-</body>
-</html>
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(160deg, var(--green-deep) 0%, var(--green-mid) 60%, var(--green-light) 100%);
+      padding: 44px 20px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
