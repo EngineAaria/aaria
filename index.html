@@ -77,6 +77,11 @@ if (window.location.hostname === "aariarealty.com") {
       align-items: center;
       justify-content: center;
     }
+    .logo-img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
     .logo-icon svg { width: 20px; height: 20px; }
     .logo-text {
       font-family: 'Playfair Display', serif;
@@ -551,6 +556,11 @@ if (window.location.hostname === "aariarealty.com") {
       color: rgba(255,255,255,0.35);
       text-align: center;
     }
+    .footer-logo-img {
+  height: 80px;
+  width: auto;
+  margin-bottom: 10px;
+}
 
     /* ─── STICKY WHATSAPP ─── */
     .sticky-wa {
@@ -573,7 +583,6 @@ if (window.location.hostname === "aariarealty.com") {
       0%, 100% { box-shadow: 0 4px 18px rgba(37,211,102,0.45); }
       50%       { box-shadow: 0 4px 28px rgba(37,211,102,0.7); }
     }
-
     /* ─── DESKTOP ─── */
     @media (min-width: 640px) {
       .hero { padding: 64px 40px 56px; }
@@ -600,13 +609,8 @@ if (window.location.hostname === "aariarealty.com") {
   <!-- HEADER -->
   <header class="site-header">
     <a href="#" class="logo" aria-label="Aaria home">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-      </div>
-      <span class="logo-text">Aari<span>a</span></span>
-    </a>
+  <img src="images/logo_header.png" alt="Aaria Realty Logo" class="logo-img">
+</a>
   </header>
 
   <!-- HERO -->
@@ -849,7 +853,9 @@ if (window.location.hostname === "aariarealty.com") {
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">Aari<span>a</span></div>
+    <div class="footer-logo">
+  <img src="images/logo.png" alt="Aaria Realty Logo" class="footer-logo-img">
+</div>
     <div class="footer-tagline">Your Property Guardian</div>
     <div class="footer-info">
       <div class="footer-info-item">
