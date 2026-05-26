@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aaria Realty</title>
+
+<script>
+
+window.onload = function () {
+
+  const path =
+    window.location.pathname;
+
+  const referralCode =
+    path.split("/").pop();
+
+  const message =
+`Hi Aaria 👋
+
+Mujhe aise plots explore karne hain jo future appreciation ke liye strong ho aur family purpose ke liye bhi practical choice ho.
+
+Main sirf listings nahi dekhna chahta — location potential, growth prospects aur long-term value samajhkar decision lena chahta hoon.
+
+Aap mujhe guide kariye aur meri requirement ke hisaab se best options suggest kijiye 🙂
+
+Referral Code: ${referralCode}`;
+
+  const whatsappUrl =
+    "https://wa.me/918470803621?text=" +
+    encodeURIComponent(message);
+
+  window.location.href =
+    whatsappUrl;
+
+};
+
+</script>
+
+</head>
+
+<body style="font-family:sans-serif;text-align:center;padding-top:100px;">
+
+<h2>Redirecting to WhatsApp...</h2>
+
+<p>Please wait 🙂</p>
+
+</body>
+
+</html>
