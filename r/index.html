@@ -13,12 +13,11 @@
 
 window.onload = function () {
 
-  const path =
-    window.location.pathname;
-
+  // GET REFERRAL CODE
   const referralCode =
-    path.split("/").pop();
+    window.location.search.replace("?", "");
 
+  // MESSAGE
   const message =
 `Hi Aaria 👋
 
@@ -30,10 +29,12 @@ Aap mujhe guide kariye aur meri requirement ke hisaab se best options suggest ki
 
 Referral Code: ${referralCode}`;
 
+  // WHATSAPP URL
   const whatsappUrl =
     "https://wa.me/918470803621?text=" +
     encodeURIComponent(message);
 
+  // REDIRECT
   window.location.href =
     whatsappUrl;
 
@@ -45,7 +46,7 @@ Referral Code: ${referralCode}`;
 
 <body style="font-family:sans-serif;text-align:center;padding-top:100px;">
 
-<h2>Redirecting to WhatsApp...</h2>
+<h2>Redirecting to Aaria Realty...</h2>
 
 <p>Please wait 🙂</p>
 
