@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <script>
 
 const path =
@@ -9,15 +10,21 @@ window.location.pathname;
 
 if(path.startsWith('/r/')){
 
-window.location.href =
-'/r/index.html?' +
-path.split('/r/')[1];
+  const code =
+    path.split('/r/')[1];
+
+  window.location.href =
+    '/r/index.html?' + code;
 
 }
 
 </script>
+
 </head>
+
 <body>
+
 Redirecting...
+
 </body>
 </html>
