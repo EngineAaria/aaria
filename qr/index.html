@@ -1,73 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <title>QR Redirect</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-body{
-font-family:Arial;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
-text-align:center;
-}
-</style>
-
 </head>
+
 <body>
 
-<div id="status">
 Loading...
-</div>
 
 <script>
 
-async function redirect() {
+const qrId =
+decodeURIComponent(
+  window.location.search.substring(1)
+);
 
-    const path =
-    window.location.pathname;
+fetch('/mappings.json')
+.then(r => r.json())
+.then(data => {
 
-    const qrId =
-    path.split('/').pop();
+  if(data[qrId]){
 
-    try {
+    window.location.replace(
+      data[qrId]
+    );
 
-        const response =
-        await fetch('/mappings.json');
+  }else{
 
-        const mappings =
-        await response.json();
+    document.body.innerHTML =
+      '<h2>QR Not Activated Yet</h2>';
 
-        if(mappings[qrId]) {
+  }
 
-            window.location.replace(
-                mappings[qrId]
-            );
+})
+.catch(() => {
 
-            return;
-        }
+  document.body.innerHTML =
+    '<h2>System Error</h2>';
 
-        document.getElementById(
-          'status'
-        ).innerHTML =
-        'QR Not Activated Yet';
-
-    } catch(error){
-
-        document.getElementById(
-          'status'
-        ).innerHTML =
-        'System Error';
-
-    }
-
-}
-
-redirect();
+});
 
 </script>
 
