@@ -7,14 +7,34 @@
 
 const path = window.location.pathname;
 
+// Referral Links
 if(path.startsWith('/r/')){
 
   const code =
     path.split('/r/')[1];
 
   window.location.replace(
-    '/r/index.html?' + code
+    '/r/index.html?' + encodeURIComponent(code)
   );
+
+}
+
+// QR Links
+else if(path.startsWith('/qr/')){
+
+  const qrId =
+    path.split('/qr/')[1];
+
+  window.location.replace(
+    '/qr/index.html?' + encodeURIComponent(qrId)
+  );
+
+}
+
+// Everything else
+else{
+
+  window.location.replace('/');
 
 }
 
