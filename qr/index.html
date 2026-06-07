@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Redirecting...</title>
+</head>
+<body>
 
+<p>Loading...</p>
+
+<script>
+
+const path =
+window.location.pathname;
+
+const qrId =
+path.split('/').pop();
+
+fetch('/mappings.json')
+.then(r=>r.json())
+.then(data=>{
+
+    if(data[qrId]){
+
+        window.location.replace(
+            data[qrId]
+        );
+
+    }else{
+
+        document.body.innerHTML =
+        "<h2>QR Not Activated Yet</h2>";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
